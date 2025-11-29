@@ -1,0 +1,15 @@
+node_modules/
+src/
+tests/
+*.log
+.DS_Store
+.env
+coverage/
+*.tsbuildinfo
+.git/
+.github/
+.gitignore
+tsconfig.json
+*.test.ts
+*.test.js
+
