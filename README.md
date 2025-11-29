@@ -7,9 +7,9 @@ A CLI tool to audit npm dependencies for maintenance and security risks. `npm-wa
 - 🔍 **Comprehensive Dependency Analysis**: Parses `package.json` and lock files to build a complete dependency tree
 - 📊 **Registry Metadata**: Fetches package metadata from npm registry including publish dates, download stats, and more
 - ⚠️ **Risk Detection**: Flags dependencies based on:
-  - **Stale packages**: Packages not updated in a specified time period
-  - **Low usage**: Packages with low weekly download counts
-  - **Security vulnerabilities**: Known security issues detected via `npm audit`
+    - **Stale packages**: Packages not updated in a specified time period
+    - **Low usage**: Packages with low weekly download counts
+    - **Security vulnerabilities**: Known security issues detected via `npm audit`
 - 📝 **Flexible Reporting**: Human-readable terminal output or JSON format for CI integration
 - ⚙️ **Configurable**: Customize thresholds and options via command-line flags
 
@@ -36,6 +36,7 @@ npm-warden
 ```
 
 This will:
+
 1. Parse your `package.json` and `package-lock.json` (or `yarn.lock`)
 2. Fetch metadata from npm registry for all dependencies
 3. Audit packages for risks
@@ -123,35 +124,35 @@ JSON output is designed for CI/CD integration and programmatic processing:
 
 ```json
 {
-  "timestamp": "2024-01-15T10:30:00.000Z",
-  "summary": {
-    "total": 150,
-    "flagged": 3,
-    "byType": {
-      "security": 1,
-      "stale": 1,
-      "low-usage": 1
-    }
-  },
-  "packages": [
-    {
-      "name": "vulnerable-package",
-      "version": "1.0.0",
-      "isDirect": true,
-      "isDev": false,
-      "metadata": {
-        "lastPublished": "2023-11-15T00:00:00.000Z",
-        "weeklyDownloads": 15000
-      },
-      "risks": [
-        {
-          "type": "security",
-          "severity": "high",
-          "reason": "Security vulnerability: Critical XSS vulnerability"
+    "timestamp": "2024-01-15T10:30:00.000Z",
+    "summary": {
+        "total": 150,
+        "flagged": 3,
+        "byType": {
+            "security": 1,
+            "stale": 1,
+            "low-usage": 1
         }
-      ]
-    }
-  ]
+    },
+    "packages": [
+        {
+            "name": "vulnerable-package",
+            "version": "1.0.0",
+            "isDirect": true,
+            "isDev": false,
+            "metadata": {
+                "lastPublished": "2023-11-15T00:00:00.000Z",
+                "weeklyDownloads": 15000
+            },
+            "risks": [
+                {
+                    "type": "security",
+                    "severity": "high",
+                    "reason": "Security vulnerability: Critical XSS vulnerability"
+                }
+            ]
+        }
+    ]
 }
 ```
 
@@ -165,20 +166,20 @@ You can use `npm-warden` in your GitHub Actions workflow:
 name: Dependency Audit
 
 on:
-  pull_request:
-  schedule:
-    - cron: '0 0 * * 0'  # Weekly on Sunday
+    pull_request:
+    schedule:
+        - cron: "0 0 * * 0" # Weekly on Sunday
 
 jobs:
-  audit:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - run: npm install
-      - run: npx npm-warden --output json --fail-on-risk
+    audit:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: "18"
+            - run: npm install
+            - run: npx npm-warden --output json --fail-on-risk
 ```
 
 See [`.github/workflows/audit.yml`](.github/workflows/audit.yml) for a complete example.
@@ -193,14 +194,14 @@ See [`.github/workflows/audit.yml`](.github/workflows/audit.yml) for a complete 
 1. **Dependency Parsing**: Reads `package.json` and lock files to build a complete dependency tree including transitive dependencies.
 
 2. **Registry Metadata Fetching**: For each package, fetches metadata from the npm registry API:
-   - Last published date
-   - Weekly download statistics
-   - Package description
+    - Last published date
+    - Weekly download statistics
+    - Package description
 
 3. **Risk Assessment**: Applies heuristics to flag packages:
-   - **Stale**: Last published date exceeds the threshold
-   - **Low Usage**: Weekly downloads below the threshold
-   - **Security**: Vulnerabilities detected via `npm audit`
+    - **Stale**: Last published date exceeds the threshold
+    - **Low Usage**: Weekly downloads below the threshold
+    - **Security**: Vulnerabilities detected via `npm audit`
 
 4. **Reporting**: Generates formatted output based on the selected format.
 
@@ -263,4 +264,3 @@ MIT
 - Built with TypeScript and Node.js
 - Uses the npm registry API for package metadata
 - Integrates with `npm audit` for security vulnerability detection
-
