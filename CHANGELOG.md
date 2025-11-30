@@ -74,9 +74,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Comprehensive dependency analysis with package.json and lock file parsing
 - Registry metadata fetching from npm registry API
 - Risk detection for:
-  - Stale packages (configurable threshold)
-  - Low usage packages (configurable download threshold)
-  - Security vulnerabilities (via npm audit integration)
+    - Stale packages (configurable threshold)
+    - Low usage packages (configurable download threshold)
+    - Security vulnerabilities (via npm audit integration)
 - Flexible reporting with text and JSON output formats
 - Configurable thresholds via command-line flags
 - CI/CD integration support with exit codes
@@ -89,4 +89,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Node.js 24+ support
 - Built with Commander.js for CLI interface
 - Full type safety with TypeScript
-
