@@ -275,6 +275,36 @@ npm-warden/
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+### Development Setup
+
+1. Clone the repository:
+```bash
+git clone https://github.com/bhuvaneshcj/npm-warden.git
+cd npm-warden
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Build the project:
+```bash
+npm run build
+```
+
+4. Run tests:
+```bash
+npm test
+```
+
+5. Test the CLI locally:
+```bash
+npm start
+# or
+node dist/src/cli.js
+```
+
 ## Version
 
 Current version: **1.0.2**
