@@ -1,6 +1,6 @@
 {
     "name": "npm-warden",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "CLI tool to audit npm dependencies for maintenance and security risks",
     "type": "module",
     "main": "dist/src/cli.js",
@@ -24,13 +24,19 @@
     "author": "Bhuvanesh C",
     "license": "MIT",
     "files": [
-        "dist",
-        "README.md"
+        "dist/src",
+        "README.md",
+        "LICENSE",
+        "CHANGELOG.md"
     ],
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/bhuvaneshcj/npm-warden.git"
     },
+    "bugs": {
+        "url": "https://github.com/bhuvaneshcj/npm-warden/issues"
+    },
+    "homepage": "https://github.com/bhuvaneshcj/npm-warden#readme",
     "dependencies": {
         "commander": "^11.1.0"
     },
@@ -40,6 +46,12 @@
         "typescript": "^5.3.3"
     },
     "engines": {
-        "node": ">=18.0.0"
+        "node": ">=24.0.0"
+    },
+    "exports": {
+        ".": {
+            "import": "./dist/src/cli.js",
+            "types": "./dist/src/cli.d.ts"
+        }
     }
 }

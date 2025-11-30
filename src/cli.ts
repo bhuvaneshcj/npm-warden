@@ -12,7 +12,7 @@ const program = new Command();
 program
     .name("npm-warden")
     .description("Audit npm dependencies for maintenance and security risks")
-    .version("1.0.0")
+    .version("1.0.2")
     .option(
         "--stale-months <number>",
         "Months since last publish to flag as stale",

@@ -12,4 +12,6 @@ coverage/
 tsconfig.json
 *.test.ts
 *.test.js
+dist/tests/
+dist/**/*.test.*
 
