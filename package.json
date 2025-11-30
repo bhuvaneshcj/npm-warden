@@ -9,8 +9,10 @@
     },
     "scripts": {
         "build": "tsc",
+        "build:with-tests": "tsc && tsc --project tsconfig.test.json",
         "start": "node dist/src/cli.js",
-        "test": "npm run build && node --test 'dist/tests/**/*.test.js'",
+        "test": "npm run build:with-tests && node --test 'dist/tests/**/*.test.js'",
+        "test:watch": "npm run build:with-tests && node --test --watch 'dist/tests/**/*.test.js'",
         "prepublishOnly": "npm run build"
     },
     "keywords": [

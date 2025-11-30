@@ -236,6 +236,18 @@ npm run build
 npm test
 ```
 
+The test suite includes:
+- Unit tests for dependency parsing
+- Unit tests for risk auditing
+- Unit tests for report generation
+- All tests use Node.js built-in test runner
+
+For watch mode during development:
+
+```bash
+npm run test:watch
+```
+
 ### Project Structure
 
 ```
@@ -248,16 +260,37 @@ npm-warden/
 │   ├── reporter.ts     # Report generation
 │   └── types.ts        # TypeScript type definitions
 ├── tests/              # Unit tests
-└── dist/               # Compiled output
+├── dist/               # Compiled output (production)
+└── .github/
+    └── workflows/
+        └── audit.yml   # GitHub Actions workflow example
 ```
+
+### Requirements
+
+- Node.js 24.0.0 or higher
+- npm or compatible package manager
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+## Version
+
+Current version: **1.0.2**
+
+See [CHANGELOG.md](CHANGELOG.md) for version history and changes.
+
 ## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
+
+## Author
+
+**Bhuvanesh C**
+
+- GitHub: [@bhuvaneshcj](https://github.com/bhuvaneshcj)
+- Package: [npm-warden](https://www.npmjs.com/package/npm-warden)
 
 ## Acknowledgments
 
